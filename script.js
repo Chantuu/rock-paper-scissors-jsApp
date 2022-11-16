@@ -1,43 +1,65 @@
 function getComputerChoice() {
-    choice = Math.floor(Math.random() * 3);
+  choice = Math.floor(Math.random() * 3);
 
-    switch (choice) {
-        case 0:
-            return 'rock';
-        
-        case 1:
-            return 'paper';
+  switch (choice) {
+    case 0:
+      return "rock";
 
-        case 2:
-            return 'scissor';
+    case 1:
+      return "paper";
 
-        default:
-            console.log('Error');
-            return null;
-    }
+    case 2:
+      return "scissor";
+
+    default:
+      console.log("Error");
+      return null;
+  }
 }
 
 function playRound(userChoice, computerChoice) {
-    if (userChoice.toLowerCase() == computerChoice) {
-        return 'Draw';
-    } else if (userChoice.toLowerCase() == 'rock' && computerChoice == 'paper') {
-        return 'You lost!';
-    } else if (userChoice.toLowerCase() == 'rock' && computerChoice == 'scissor') {
-        return 'You won!';
-    } else if (userChoice.toLowerCase() == 'paper' && computerChoice == 'rock') {
-        return 'You won!';
-    } else if (userChoice.toLowerCase() == 'paper' && computerChoice == 'scissor') {
-        return 'You lost!';
-    } else if (userChoice.toLowerCase() == 'scissor' && computerChoice == 'rock') {
-        return 'You lost!';
-    } else if (userChoice.toLowerCase() == 'scissor' && computerChoice == 'paper') {
-        return 'You won!';
-    } else {
-        console.log('Error');
-        return null;
-    }
+  if (userChoice.toLowerCase() == computerChoice) {
+    return "Draw";
+  } else if (userChoice.toLowerCase() == "rock" && computerChoice == "paper") {
+    return "You lost!";
+  } else if (
+    userChoice.toLowerCase() == "rock" &&
+    computerChoice == "scissor"
+  ) {
+    return "You won!";
+  } else if (userChoice.toLowerCase() == "paper" && computerChoice == "rock") {
+    return "You won!";
+  } else if (
+    userChoice.toLowerCase() == "paper" &&
+    computerChoice == "scissor"
+  ) {
+    return "You lost!";
+  } else if (
+    userChoice.toLowerCase() == "scissor" &&
+    computerChoice == "rock"
+  ) {
+    return "You lost!";
+  } else if (
+    userChoice.toLowerCase() == "scissor" &&
+    computerChoice == "paper"
+  ) {
+    return "You won!";
+  } else {
+    console.log("Error");
+    return null;
+  }
 }
 
-let userChoice = prompt('Please input your choice (\'Rock, Paper, Scissor\')');
-let computerChoice = getComputerChoice();
-console.log(playRound(userChoice, computerChoice))
+function game() {
+  let roundCount = +prompt("How many rounds do you want to play:");
+
+  for (let round = 1; round <= roundCount; round++) {
+    let userChoice = prompt(
+      "Please input your choice ('Rock, Paper, Scissor')"
+    );
+    let computerChoice = getComputerChoice();
+    alert(playRound(userChoice, computerChoice));
+  }
+}
+
+game();

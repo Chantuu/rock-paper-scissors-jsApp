@@ -2,38 +2,46 @@
 
  Main functionality:
     Define 'getComputerChoice' method () {
-        save floored output of math.random() * 3 as 'choice' variable;
-        if output === 0:
-            return 'rock';
-        elif output === 1:
-            return 'paper';
-        elif output === 2:
-            return 'scissor';
-        else:
-            log error string message;
-            return 'null';
+            save floored output of math.random() * 3 as 'choice' variable;
+            if output == 0:
+                return 'rock';
+            elif output == 1:
+                return 'paper';
+            elif output == 2:
+                return 'scissor';
+            else:
+                log error string message;
+                return 'null';
     }
 
     Define 'playRound' Method (userChoice, computerChoice) {
-        if lowercase userChoice == computerChoice:
-            return 'Draw!';
-        elif lowercase userChoice == 'rock' and computerChoice == 'paper':
-            return 'You lost!';
-        elif lowercase userChoice == 'rock' and computerChoice == 'scissor':
-            return 'You won!';
-        elif lowercase userChoice == 'paper' and computerChoice == 'rock':
-            return 'You won!';
-        elif lowercase userChoice == 'paper' and computerChoice == 'scissor':
-            return 'You lost!'; 
-        elif lowercase userChoice == 'scissor' and computerChoice == 'rock':
-            return 'You lost!';
-        elif lowercase userChoice == 'scissor' and computerChoice == 'paper':
-            return 'You won!';
-        else:
-            log error string to console;
-            return 'null';
+            if lowercase userChoice == computerChoice:
+                return 'Draw!';
+            elif lowercase userChoice == 'rock' and computerChoice == 'paper':
+                return 'You lost!';
+            elif lowercase userChoice == 'rock' and computerChoice == 'scissor':
+                return 'You won!';
+            elif lowercase userChoice == 'paper' and computerChoice == 'rock':
+                return 'You won!';
+            elif lowercase userChoice == 'paper' and computerChoice == 'scissor':
+                return 'You lost!'; 
+            elif lowercase userChoice == 'scissor' and computerChoice == 'rock':
+                return 'You lost!';
+            elif lowercase userChoice == 'scissor' and computerChoice == 'paper':
+                return 'You won!';
+            else:
+                log error string to console;
+                return 'null';
     }
 
-   Ask the user for their input ('Rock, Paper, Scissor') and save it as 'userChoice';
-   save getComputerChoice method output as 'computerChoice' variable;
-   log 'playRound' method result to console;
+    Define 'game' method () {
+        prompt the user for round quantity and save output as number in 'roundCount' variable;
+
+        Loop the algorithm where defined variable value is less than or equal to 5 {
+            Ask the user for their input ('Rock, Paper, Scissor') and save it as 'userChoice';
+            save getComputerChoice method output as 'computerChoice' variable;
+            alert 'playRound' method result;
+        }
+    }
+
+    call 'game' method();
