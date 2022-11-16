@@ -1,0 +1,18 @@
+ This is javascript exercise rock-paper-scissors game.
+
+ Main functionality:
+    Define 'getComputerChoice' method () {
+        save floored output of math.random() * 3 as 'choice' variable;
+        if output === 0:
+            return 'rock'
+        elif output === 1:
+            return 'paper'
+        elif output === 2:
+            return 'scissor'
+        else:
+            log error string message;
+            return 'null';
+    }
+
+   Ask the user for their input ('Rock, Paper, Scissor') and save it as 'userChoice';
+   save getComputerChoice method output as 'computerChoice' variable;
