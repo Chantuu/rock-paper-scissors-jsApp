@@ -51,15 +51,25 @@ function playRound(userChoice, computerChoice) {
 }
 
 function game() {
-  let roundCount = +prompt("How many rounds do you want to play:");
-
   for (let round = 1; round <= roundCount; round++) {
-    let userChoice = prompt(
-      "Please input your choice ('Rock, Paper, Scissor')"
-    );
-    let computerChoice = getComputerChoice();
-    alert(playRound(userChoice, computerChoice));
+    let userChoice = prompt("Please input your choice ('Rock, Paper, Scissor')");
+    
+    if (checkUserChoice(userChoice) == true) {
+      let computerChoice = getComputerChoice();
+      alert(playRound(userChoice, computerChoice));
+    } else {
+      alert('Incorrect input. Please enter again')
+    }
   }
 }
 
+function checkUserChoice(userChoice) {
+  if (userChoice.toLowerCase() == 'rock' || userChoice.toLowerCase() == 'paper' || userChoice.toLowerCase() == 'scissor') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+let roundCount = +prompt("How many rounds do you want to play:");
 game();
