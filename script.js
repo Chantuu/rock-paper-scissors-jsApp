@@ -1,15 +1,57 @@
-function getComputerChoice() {
+const matchResultp = document.querySelector(".match-Result");
+const playerChoicep = document.querySelector(".Player-Choice-p");
+const aiChoicep = document.querySelector(".AI-Choice-p");
+const playerScorespan = document.querySelector(".Player-Score-span");
+const aiScorespan = document.querySelector(".AI-Score-span");
+
+const playerChoicepMainText = playerChoicep.innerText;
+const aiChoiceMainText = aiChoicep.innerText;
+let playerScore = 0;
+let aiScore = 0;
+
+playerScorespan.innerText = 0;
+aiScorespan.innerText = 0;
+
+function playRound(userChoice, aiChoice) {
+  uc = userChoice;
+  ac = aiChoice();
+
+  playerChoicep.innerText = `${playerChoicepMainText} ${uc}`;
+  aiChoicep.innerText = `${aiChoiceMainText} ${ac}`;
+
+  if (uc == ac) {
+    matchResultp.innerText = "Draw";
+  } else if (
+    (uc == "Rock" && ac == "Paper") ||
+    (uc == "Paper" && ac == "Scissor") ||
+    (uc == "Scissor" && ac == "Rock")
+  ) {
+    matchResultp.innerText = "You lost!";
+    aiScore += 1;
+    aiScorespan.innerText = aiScore;
+  } else if (
+    (uc == "Paper" && ac == "Rock") ||
+    (uc == "Scissor" && ac == "Paper") ||
+    (uc == "Rock" && ac == "Scissor")
+  ) {
+    matchResultp.innerText = "You Won!";
+    playerScore += 1;
+    playerScorespan.innerText = playerScore;
+  }
+}
+
+function AIChoice() {
   choice = Math.floor(Math.random() * 3);
 
   switch (choice) {
     case 0:
-      return "rock";
+      return "Rock";
 
     case 1:
-      return "paper";
+      return "Paper";
 
     case 2:
-      return "scissor";
+      return "Scissor";
 
     default:
       console.log("Error");
@@ -17,59 +59,9 @@ function getComputerChoice() {
   }
 }
 
-function playRound(userChoice, computerChoice) {
-  if (userChoice.toLowerCase() == computerChoice) {
-    return "Draw";
-  } else if (userChoice.toLowerCase() == "rock" && computerChoice == "paper") {
-    return "You lost!";
-  } else if (
-    userChoice.toLowerCase() == "rock" &&
-    computerChoice == "scissor"
-  ) {
-    return "You won!";
-  } else if (userChoice.toLowerCase() == "paper" && computerChoice == "rock") {
-    return "You won!";
-  } else if (
-    userChoice.toLowerCase() == "paper" &&
-    computerChoice == "scissor"
-  ) {
-    return "You lost!";
-  } else if (
-    userChoice.toLowerCase() == "scissor" &&
-    computerChoice == "rock"
-  ) {
-    return "You lost!";
-  } else if (
-    userChoice.toLowerCase() == "scissor" &&
-    computerChoice == "paper"
-  ) {
-    return "You won!";
-  } else {
-    console.log("Error");
-    return null;
-  }
-}
-
-function game() {
-  for (let round = 1; round <= roundCount; round++) {
-    let userChoice = prompt("Please input your choice ('Rock, Paper, Scissor')");
-    
-    if (checkUserChoice(userChoice) == true) {
-      let computerChoice = getComputerChoice();
-      alert(playRound(userChoice, computerChoice));
-    } else {
-      alert('Incorrect input. Please enter again')
-    }
-  }
-}
-
-function checkUserChoice(userChoice) {
-  if (userChoice.toLowerCase() == 'rock' || userChoice.toLowerCase() == 'paper' || userChoice.toLowerCase() == 'scissor') {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-let roundCount = +prompt("How many rounds do you want to play:");
-game();
+const buttons = document.querySelectorAll("button");
+buttons.forEach(function (button) {
+  button.addEventListener("click", (e) =>
+    playRound(e.target.innerText, AIChoice)
+  );
+});

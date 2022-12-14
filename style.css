@@ -1,44 +1,45 @@
 body {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 10px;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .container {
-    display: flex;
-    border: 2px solid purple;
-    border-radius: 10px;
-    background-color: rgb(224, 10, 160);
+  display: flex;
+  border: 2px solid purple;
+  border-radius: 10px;
+  background-color: rgb(224, 10, 160);
 }
 
-.container.Score, .container.Info, .container.Match-status, .container.Button {
-    justify-content: center;
+.container.Score,
+.container.Choice,
+.container.Match-status,
+.container.Button {
+  justify-content: center;
 }
-
 
 .container.Score p {
-    flex: auto;
+  flex: auto;
 }
 
-.container.Info p {
-    flex: auto;
+.container.Choice p {
+  flex: auto;
 }
-
 
 .container.Button {
-    gap: 39px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 40px;
-    padding-right: 40px;
-    align-self: center;
+  gap: 39px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 40px;
+  padding-right: 40px;
+  align-self: center;
 }
 
 p {
-    text-align: center;
+  text-align: center;
 }
