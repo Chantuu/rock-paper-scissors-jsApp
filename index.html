@@ -7,26 +7,37 @@
     <title>Test-Javascript</title>
     <link href="./style.css" rel="stylesheet" />
     <script src="script.js" defer></script>
-  </head>
-  <body>
-    <h1>Rock, Paper, Scissor Game</h1>
-    <div class="container Score">
-      <p class="AI-Score-p">AI Score: <span class="AI-Score-span"></span></p>
-      <p class="Player-Score-p">
-        Player Score: <span class="Player-Score-span"></span>
-      </p>
+</head>
+<body>
+    <div class="body Top">
+        <h1>Rock, Paper, Scissor Game</h1>
+        <button class="helpButton">Help</button>
     </div>
-    <div class="container Choice">
-      <p class="AI-Choice-p">AI Chooses:</p>
-      <p class="Player-Choice-p">You Choose:</p>
+
+    <div class="body One">
+        <h2 class="h2">Scores</h2>
+        <div class="container Score">
+            <p class="Player-Score-p">Your Score: <span class="Player-Score-span"></span></p>
+            <p class="AI-Score-p">AI Score: <span class="AI-Score-span"></span></p>
+        </div>
     </div>
+
+    <div class="body Two">
+        <h2 class="h2">Info</h2>
+        <div class="container Choice">
+            <p class="Player-Choice-p">You Choose:</p>
+            <p class="AI-Choice-p">AI Chooses:</p>
+        </div>
+    </div>
+
     <div class="container Match-status">
-      <p class="match-Result">-</p>
+        <p class="match-Result">-</p>
     </div>
+
     <div class="container Button">
-      <button>Rock</button>
-      <button>Paper</button>
-      <button>Scissor</button>
+        <button class="gameButton">Rock</button>
+        <button class="gameButton">Paper</button>
+        <button class="gameButton">Scissor</button>
     </div>
-  </body>
+</body>
 </html>

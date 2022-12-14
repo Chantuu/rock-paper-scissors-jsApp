@@ -9,8 +9,13 @@ const aiChoiceMainText = aiChoicep.innerText;
 let playerScore = 0;
 let aiScore = 0;
 
-playerScorespan.innerText = 0;
-aiScorespan.innerText = 0;
+playerScorespan.innerText = playerScore;
+aiScorespan.innerText = aiScore;
+
+const helpButton = document.querySelector('.helpButton');
+helpButton.addEventListener('click', function() {
+  alert('Rock-Paper-Scissors is a game played to settle disputes between two people. Thought to be a game of chance that depends on random luck similar to flipping coins or drawing straws. However, the game actually can be a game that has an element of skill that requires quick thinking and perceptive reasoning.\n\n Rules:\n  1. Rock wins against scissors\n  2. Paper wins against rock\n  3. Scissors wins against paper\n\n  If both players throw the same hand signal, it is considered a tie, and play resumes until there is a clear winner.');
+})
 
 function playRound(userChoice, aiChoice) {
   uc = userChoice;
@@ -59,7 +64,7 @@ function AIChoice() {
   }
 }
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".gameButton");
 buttons.forEach(function (button) {
   button.addEventListener("click", (e) =>
     playRound(e.target.innerText, AIChoice)
