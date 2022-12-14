@@ -43,6 +43,28 @@ function playRound(userChoice, aiChoice) {
     playerScore += 1;
     playerScorespan.innerText = playerScore;
   }
+
+  if (aiScore > 5) {
+    alert("Ai wins this game! Restarting round");
+    restartRound();
+
+  } else if (playerScore > 5) {
+    alert("Congratulations! You win this game! Restarting round");
+    restartRound();
+  }
+}
+
+function restartRound() {
+  playerScore = 0;
+  aiScore = 0;
+
+  playerScorespan.innerText = playerScore;
+  aiScorespan.innerText = aiScore;
+
+  playerChoicep.innerText = playerChoicepMainText;
+  aiChoicep.innerText = aiChoiceMainText;
+
+  matchResultp.innerText = "Press any button to play round";
 }
 
 function AIChoice() {
